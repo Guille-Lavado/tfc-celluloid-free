@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AdminObras, AdminUsuarios, AdminDirectores, AdminGeneros } from "./pages/index";
+import { AdminObras, AdminUsuarios, AdminDirectores, AdminGeneros, HomePage } from "./pages/index";
 import LoginModal from "./components/LoginModal";
 import AdminLayout from "./components/AdminLayout";
 import api from "./api/axios";
@@ -56,13 +56,22 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Navigate to="/admin/obras" replace />} />
-                <Route path="/admin" element={<AdminLayout user={user} onLogout={handleLogout} />}>
+                {/* Páginas públicas */}
+                <Route path="/" element={<HomePage user={user} onLoginClick={() => setShowLogin(true)} />} />
+
+                {/* Panel admin */}
+                <Route path="/admin" element={
+                    user && user.rol === "administrador"
+                        ? <AdminLayout user={user} onLogout={handleLogout} />
+                        : <Navigate to="/" replace />
+                }>
                     <Route path="obras"    element={<AdminObras />} />
                     <Route path="usuarios" element={<AdminUsuarios />} />
                     <Route path="generos"    element={<AdminGeneros />} />
                     <Route path="directores" element={<AdminDirectores />} />
                 </Route>
+
+                <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </BrowserRouter>
     );
