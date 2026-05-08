@@ -1,0 +1,60 @@
+// --- Variables del proyecto --- 
+$color-bg:          #0a0a0a;
+$color-surface:     #161616;
+$color-surface-2:   #1e1e1e;
+$color-border:      rgba(255, 255, 255, 0.08);
+$color-text:        #f0ebe3;
+$color-text-muted:  rgba(240, 235, 227, 0.4);
+$color-red:         #c00;
+$color-red-dark:    #a00;
+
+$font-title:        'Bebas Neue', sans-serif;
+$font-serif:        'Crimson Pro', serif;
+$font-body:         'DM Sans', sans-serif;
+
+// Colores
+$primary:           $color-red;
+$secondary:         #444;
+$dark:              #111;
+$body-bg:           $color-bg;
+$body-color:        $color-text;
+
+// Tipografía
+$font-family-base:  $font-body;
+
+// Bordes
+$border-radius:     4px;
+$border-radius-lg:  6px;
+
+// Modales
+$modal-content-bg:              #1a1a1a;
+$modal-content-border-color:    $color-border;
+$modal-header-border-color:     $color-border;
+$modal-footer-border-color:     $color-border;
+
+// Inputs
+$input-bg:                      rgba(255, 255, 255, 0.04);
+$input-border-color:            rgba(255, 255, 255, 0.1);
+$input-color:                   $color-text;
+$input-focus-border-color:      $color-red;
+$input-focus-box-shadow:        none;
+$input-placeholder-color:       rgba(240, 235, 227, 0.25);
+
+// Botones
+$btn-focus-box-shadow:          none;
+$btn-border-radius:             $border-radius;
+
+// Navbar Bootstrap (para el panel admin)
+$navbar-dark-color:             rgba(240, 235, 227, 0.7);
+$navbar-dark-hover-color:       $color-text;
+$navbar-dark-active-color:      $color-text;
+
+// Tabla (panel admin)
+$table-bg:                      transparent;
+$table-color:                   $color-text;
+$table-border-color:            $color-border;
+$table-striped-bg:              rgba(255, 255, 255, 0.02);
+$table-hover-bg:                rgba(255, 255, 255, 0.04);
+
+// Badge
+$badge-border-radius:           2px;

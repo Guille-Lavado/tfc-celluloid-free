@@ -1,0 +1,12 @@
+// 1. Variables
+@import 'variables';
+
+// 2. Bootstrap con las variables ya sobreescritas
+@import '~bootstrap/scss/bootstrap';
+
+// 3. Estilos globales propios
+@import 'custom';
+
+// 4. Componentes
+@import 'Navbar';
+@import 'Catalogo';

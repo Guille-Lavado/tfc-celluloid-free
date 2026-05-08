@@ -1,5 +1,4 @@
 import { Row, Col, Button, Spinner, Container } from "react-bootstrap";
-import "../styles/Catalogo.css";
 
 export default function Catalogo({ obras = [], loading }) {
     if (loading) {

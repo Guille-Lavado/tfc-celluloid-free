@@ -4,7 +4,7 @@ import { AdminObras, AdminUsuarios, AdminDirectores, AdminGeneros, HomePage } fr
 import LoginModal from "./components/LoginModal";
 import AdminLayout from "./components/AdminLayout";
 import api from "./api/axios";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/index.scss";
 
 function App() {
     const [user, setUser] = useState(null);

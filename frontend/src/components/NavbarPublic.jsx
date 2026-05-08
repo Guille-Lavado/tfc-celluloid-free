@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import "../styles/Navbar.css";
 
 export default function NavbarPublic({ user, onLoginClick }) {
     const navigate = useNavigate();
