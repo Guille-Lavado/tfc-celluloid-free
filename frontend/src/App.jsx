@@ -25,6 +25,17 @@ function App() {
         checkAuth();
     }, []);
 
+    useEffect(() => {
+        const handleExpired = () => {
+            setUser(null);
+            setShowLogin(true);
+        };
+
+        // Escuchar evento global y eliminar usuario
+        window.addEventListener("session-expired", handleExpired);
+        return () => window.removeEventListener("session-expired", handleExpired);
+    }, []);
+
     const handleLogin = (userData) => {
         setUser(userData);
         setShowLogin(false);
