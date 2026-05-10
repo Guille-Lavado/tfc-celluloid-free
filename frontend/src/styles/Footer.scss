@@ -1,0 +1,19 @@
+.public-layout {
+    .divider {
+        width: 48px;
+        height: 2px;
+        background: $color-red;
+        margin: 0 auto 4rem;
+    }
+
+    .footer-custom {
+        border-top: 1px solid $color-border;
+        padding: 2.5rem 3rem;
+        font-size: 0.75rem;
+        color: rgba(240, 235, 227, 0.2);
+
+        @media (max-width: 768px) {
+            text-align: center;
+        }
+    }
+}

@@ -8,7 +8,9 @@
         font-size: clamp(2.5rem, 5vw, 4rem);
         color: $color-text;
 
-        span { color: $color-red; }
+        span {
+            color: $color-red;
+        }
     }
 }
 
@@ -25,8 +27,13 @@
     &:hover {
         transform: translateY(-6px);
 
-        .card-overlay    { opacity: 1; }
-        .card-img-custom { transform: scale(1.05); }
+        .card-overlay {
+            opacity: 1;
+        }
+
+        .card-img-custom {
+            transform: scale(1.05);
+        }
     }
 
     .card-img-custom {
@@ -51,12 +58,10 @@
     .card-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-            to top,
-            rgba(0,0,0,0.95) 0%,
-            rgba(0,0,0,0.4) 50%,
-            transparent 100%
-        );
+        background: linear-gradient(to top,
+                rgba(0, 0, 0, 0.95) 0%,
+                rgba(0, 0, 0, 0.4) 50%,
+                transparent 100%);
         opacity: 0;
         transition: opacity 0.3s ease;
         display: flex;
@@ -67,9 +72,11 @@
 
     .card-bottom {
         position: absolute;
-        bottom: 0; left: 0; right: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         padding: 2rem 1rem 1rem;
-        background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
     }
 
     .card-titulo {

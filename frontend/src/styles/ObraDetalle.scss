@@ -1,0 +1,315 @@
+.detalle {
+    min-height: 100vh;
+    background: $color-bg;
+    font-family: $font-body;
+
+    &-backdrop {
+        position: relative;
+        min-height: 70vh;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+
+        &-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: brightness(0.3);
+        }
+
+        &-gradient {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to top, $color-bg 0%, rgba(10, 10, 10, 0.6) 50%, rgba(10, 10, 10, 0.2) 100%),
+                linear-gradient(to right, rgba(10, 10, 10, 0.8) 0%, transparent 60%);
+        }
+
+        &-placeholder {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+        }
+    }
+
+    &-hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 3rem;
+        display: flex;
+        gap: 3rem;
+        align-items: flex-end;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 2rem 1.5rem;
+            gap: 1.5rem;
+        }
+    }
+
+    &-poster {
+        width: 200px;
+        min-width: 200px;
+        aspect-ratio: 2/3;
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+        flex-shrink: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &-placeholder {
+            width: 100%;
+            height: 100%;
+            background: $color-surface;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: $font-title;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.06);
+        }
+
+        @media (max-width: 768px) {
+            width: 140px;
+            min-width: 140px;
+        }
+    }
+
+    &-info {
+        flex: 1;
+        padding-bottom: 0.5rem;
+    }
+
+    &-badges {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+
+    &-titulo {
+        font-family: $font-title;
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        line-height: 0.9;
+        color: $color-text;
+        margin-bottom: 1rem;
+    }
+
+    &-director-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        color: $color-text-muted;
+        font-size: 0.85rem;
+
+        span {
+            color: $color-text;
+        }
+    }
+
+    &-sinopsis {
+        font-family: $font-serif;
+        font-size: 1.1rem;
+        font-weight: 300;
+        line-height: 1.7;
+        color: rgba(240, 235, 227, 0.7);
+        max-width: 600px;
+    }
+
+    &-body {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 3rem 6rem;
+
+        @media (max-width: 768px) {
+            padding: 2rem 1.5rem 4rem;
+        }
+    }
+
+    &-spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+}
+
+// Badge
+.badge {
+    background: $color-red;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+}
+
+// Player
+.player {
+    &-wrap {
+        margin-bottom: 4rem;
+    }
+
+    &-titulo {
+        font-family: $font-title;
+        font-size: 1.8rem;
+        color: $color-text;
+        margin-bottom: 1rem;
+
+        span {
+            color: $color-red;
+        }
+    }
+
+    &-box {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: #111;
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+
+        video {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+}
+
+.episodios {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.episodio-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid $color-border;
+    color: $color-text-muted;
+    padding: 0.75rem 1rem;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-family: $font-body;
+    font-size: 0.85rem;
+    text-align: left;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover,
+    &.activo {
+        background: rgba(200, 0, 0, 0.15);
+        border-color: $color-red;
+        color: $color-text;
+    }
+
+    .episodio-num {
+        font-size: 0.7rem;
+        color: $color-red;
+        letter-spacing: 0.1em;
+    }
+}
+
+// Director
+.director-section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid $color-border;
+    border-radius: $border-radius-lg;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.director {
+    &-foto {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        background: $color-surface;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: $font-title;
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.1);
+        }
+    }
+
+    &-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: $color-red;
+        margin-bottom: 0.3rem;
+    }
+
+    &-nombre {
+        font-family: $font-title;
+        font-size: 1.4rem;
+        color: $color-text;
+        margin-bottom: 0.5rem;
+    }
+
+    &-bio {
+        font-size: 0.82rem;
+        color: $color-text-muted;
+        line-height: 1.6;
+    }
+}
+
+// Volver
+.btn-volver {
+    background: none;
+    border: none;
+    color: $color-text-muted;
+    font-family: $font-body;
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    &:hover {
+        color: $color-text;
+    }
+}

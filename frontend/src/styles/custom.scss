@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap');
 
 // --- Reset base ---
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -11,25 +13,6 @@ body {
     background: $color-bg;
     color: $color-text;
     font-family: $font-body;
-}
-
-// --- Footer ---
-.divider {
-    width: 48px;
-    height: 2px;
-    background: $color-red;
-    margin: 0 auto 4rem;
-}
- 
-.footer-custom {
-    border-top: 1px solid $color-border;
-    padding: 2.5rem 3rem;
-    font-size: 0.75rem;
-    color: rgba(240, 235, 227, 0.2);
- 
-    @media (max-width: 768px) {
-        text-align: center;
-    }
 }
 
 // --- Hero --- 
@@ -49,8 +32,8 @@ body {
         position: absolute;
         inset: 0;
         background:
-            radial-gradient(ellipse 80% 60% at 50% 40%, rgba(180,0,0,0.18) 0%, transparent 70%),
-            radial-gradient(ellipse 40% 40% at 20% 80%, rgba(180,0,0,0.08) 0%, transparent 60%);
+            radial-gradient(ellipse 80% 60% at 50% 40%, rgba(180, 0, 0, 0.18) 0%, transparent 70%),
+            radial-gradient(ellipse 40% 40% at 20% 80%, rgba(180, 0, 0, 0.08) 0%, transparent 60%);
         pointer-events: none;
     }
 
@@ -109,6 +92,13 @@ body {
 
 // --- Animaciones globales ---
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
