@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Container, Badge, Stack, Spinner } from "react-bootstrap";
 import NavbarPublic from "../components/NavbarPublic";
 import Footer from "../components/Footer";
+import Puntuacion from "../components/Puntuacion";
+import Comentarios from "../components/Comentarios";
 import api from "../api/axios";
 
 export default function ObraDetalleBase({ user, onLoginClick, children }) {
@@ -152,6 +154,9 @@ export default function ObraDetalleBase({ user, onLoginClick, children }) {
                         </div>
                     </Stack>
                 )}
+
+                <Puntuacion videoId={videoActivo.id} user={user} />
+                <Comentarios videoId={videoActivo.id} user={user} />
             </Container>
 
             <Footer />

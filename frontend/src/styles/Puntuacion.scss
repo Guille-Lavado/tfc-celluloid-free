@@ -1,0 +1,77 @@
+.puntuacion {
+    &-section {
+        margin-bottom: 4rem;
+    
+        em {
+            color: $color-red;
+            font-style: normal;
+        }
+    }
+
+    &-wrap {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    &-media {
+        text-align: center;
+    }
+
+    &-num {
+        font-family: $font-title;
+        font-size: 4rem;
+        line-height: 1;
+        color: $color-text;
+
+        span {
+            font-size: 1.5rem;
+            color: $color-text-muted;
+        }
+    }
+
+    &-votos {
+        font-size: 0.72rem;
+        color: $color-text-muted;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-top: 0.3rem;
+    }
+
+    &-msg {
+        font-size: 0.75rem;
+        color: $color-text-muted;
+        margin-top: 0.5rem;
+    }
+}
+
+.estrellas {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.estrella {
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: transform 0.15s;
+    color: rgba(255, 255, 255, 0.15);
+    line-height: 1;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+
+    &.activa {
+        color: $color-red;
+    }
+
+    &.hover-activa {
+        color: rgba(200, 0, 0, 0.6);
+    }
+}

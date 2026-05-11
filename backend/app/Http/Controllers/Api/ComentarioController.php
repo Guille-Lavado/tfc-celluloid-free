@@ -14,7 +14,7 @@ class ComentarioController extends Controller
     {
         $comentarios = Comentario::with('usuario:id,name')
             ->where('id_video', $id)
-            ->orderByDesc('fecha')
+            ->orderByDesc('created_at')
             ->get();
  
         return response()->json($comentarios);

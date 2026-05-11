@@ -31,19 +31,37 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $cienciaFi = Genero::create(['nombre' => 'Ciencia Ficción']);
+        $drama     = Genero::create(['nombre' => 'Drama']);
+
+        // ---- Directores ----
+        $kirk = Director::create([
+            'nombre'           => 'Kirk Jones',
+            'fecha_nacimiento' => '1964-10-31',
+            'biografia'        => 'Director y guionista británico, conocido por combinar humor y emoción en películas como Despertando a Ned (1998), Nanny McPhee (2005) y Todos están bien (2009). Estudió en la Escuela de Cine de Newport y destaca por su estilo naturalista.',
+            'img'              => 'https://storage.celluloid.com/directores/kirk.jpg',
+        ]);
 
         $nolan = Director::create([
-            'nombre'              => 'Christopher Nolan',
+            'nombre'           => 'Christopher Nolan',
             'fecha_nacimiento' => '1970-07-30',
-            'biografia'           => 'Director británico-estadounidense conocido por sus narraciones no lineales.',
-            'img'                 => 'https://storage.celluloid.com/directores/nolan.jpg',
+            'biografia'        => 'Director, guionista y productor británico-estadounidense, reconocido por revolucionar el cine contemporáneo con narrativas no lineales, estructuras temporales complejas y el uso de efectos prácticos.',
+            'img'              => 'https://storage.celluloid.com/directores/nolan.jpg',
         ]);
 
         $kubrick = Director::create([
-            'nombre'              => 'Stanley Kubrick',
+            'nombre'           => 'Stanley Kubrick',
             'fecha_nacimiento' => '1928-07-26',
-            'biografia'           => 'Director y productor estadounidense, considerado uno de los más influyentes de la historia del cine.',
-            'img'                 => 'https://storage.celluloid.com/directores/kubrick.jpg'
+            'biografia'        => 'Director y productor estadounidense, considerado uno de los más influyentes de la historia del cine.',
+            'img'              => 'https://storage.celluloid.com/directores/kubrick.jpg'
+        ]);
+
+        // ---- Obras ----
+        $iSwear = Obra::create([
+            'titulo'      => 'I Swear',
+            'sinopsis'    => 'Basada en una extraordinaria historia real, nos narra el viaje de superación de John Davidson aprendiendo a convivir con el Síndrome de Tourette. John se enfrentará con valor y humor a los prejuicios, al rechazo y a sus propios miedos, descubriendo que la valentía y la humanidad pueden ser más fuertes que cualquier obstáculo.',
+            'poster'      => 'https://storage.celluloid.com/obras/i-swear.png',
+            'id_genero'   => $drama->id,
+            'id_director' => $kirk->id,
         ]);
 
         $odisea = Obra::create([
@@ -62,6 +80,13 @@ class DatabaseSeeder extends Seeder
             'id_director' => $nolan->id,
         ]);
 
+        // ---- Videometraje ----
+        $videoISwear = Videometraje::create([
+            'url_video' => 'https://f003.backblazeb2.com/file/celluloid-free/peliculas/gtXJMOjHQbJxdX2TWHvJ7xtHb90A6TGOOLGLokrx.mkv',
+            'duracion'  => 7260, // 2h 1min
+            'nombre'    => 'I Swear (2025)',
+        ]);
+
         $videoOdisea = Videometraje::create([
             'url_video' => 'https://storage.celluloid.com/videos/2001-space-odyssey.mp4',
             'duracion'  => 8940, // 2h 29min
@@ -72,6 +97,11 @@ class DatabaseSeeder extends Seeder
             'url_video' => 'https://storage.celluloid.com/videos/inception.mp4',
             'duracion'  => 8880, // 2h 28min
             'nombre'    => 'Inception (2010)',
+        ]);
+
+        PeliVideo::create([
+            'id_video' => $videoISwear->id,
+            'id_obra'  => $iSwear->id,
         ]);
 
         PeliVideo::create([

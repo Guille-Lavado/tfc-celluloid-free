@@ -11,21 +11,23 @@ class Comentario extends Model
 {
     protected $table      = 'comentario';
     protected $primaryKey = 'id_comentario';
-    public $timestamps    = false;
+
+    protected $hidden = ['created_at', 'updated_at'];
+
+    // Añadir un campo extra llamado 'fecha'
+    protected $appends = ['fecha'];
+
+    public function getFechaAttribute()
+    {
+        // Devolvemos el valor de created_at con un formato específico
+        return $this->created_at;
+    }
 
     protected $fillable = [
         'id_video',
         'id_user',
         'contenido',
-        'fecha',
     ];
-
-    protected function casts(): array
-    {
-        return [
-            'fecha' => 'datetime',
-        ];
-    }
 
     public function videometraje()
     {

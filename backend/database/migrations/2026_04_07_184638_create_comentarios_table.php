@@ -18,7 +18,7 @@ class CreateComentariosTable extends Migration
             $table->unsignedBigInteger('id_video');
             $table->unsignedBigInteger('id_user');
             $table->text('contenido');
-            $table->timestamp('fecha')->useCurrent();
+            $table->timestamps();
  
             $table->foreign('id_video')
                 ->references('id')->on('videometraje')
