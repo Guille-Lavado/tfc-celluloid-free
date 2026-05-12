@@ -1,0 +1,130 @@
+.busqueda {
+    min-height: 100vh;
+    background: $color-bg;
+    font-family: $font-body;
+
+    &-header {
+        padding: 8rem 0 3rem;
+    }
+
+    &-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: $color-red;
+        margin-bottom: 1rem;
+    }
+
+    &-titulo {
+        font-family: $font-title;
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 0.9;
+        color: $color-text;
+
+        span {
+            color: $color-red;
+        }
+    }
+
+    // ---- Formulario ----
+    &-form-wrap {
+        padding-bottom: 3rem;
+    }
+
+    &-field {
+        label {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: $color-text-muted;
+            margin-bottom: 0.5rem;
+        }
+
+        // Estilización de inputs de Bootstrap
+        .form-control,
+        .form-select {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: $color-text;
+            padding: 0.8rem 1rem;
+            border-radius: $border-radius;
+            font-size: 0.85rem;
+            box-shadow: none;
+
+            &:focus {
+                background: rgba(255, 255, 255, 0.07);
+                border-color: $color-red;
+                color: $color-text;
+            }
+
+            &::placeholder {
+                color: rgba(240, 235, 227, 0.2);
+            }
+        }
+
+        option {
+            background: #1a1a1a;
+        }
+    }
+
+    &-divisor {
+        margin: 0 auto 3rem;
+        border-bottom: 1px solid $color-border;
+        max-width: 1200px; // Mantengo el ancho para la línea decorativa
+    }
+
+    &-resultados {
+        padding-bottom: 6rem;
+    }
+
+    &-estado {
+        text-align: center;
+        padding: 6rem 0;
+        color: rgba(240, 235, 227, 0.15);
+        font-family: $font-title;
+        font-size: 2rem;
+        letter-spacing: 0.1em;
+
+        p {
+            font-family: $font-body;
+            font-size: 0.85rem;
+            color: rgba(240, 235, 227, 0.2);
+            margin-top: 0.5rem;
+        }
+    }
+
+    .resultados-count {
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: $color-text-muted;
+        margin-bottom: 2rem;
+
+        span {
+            color: $color-red;
+        }
+    }
+
+    // ---- Botones ----
+    .btn-buscar {
+        background: $color-red;
+        border: none;
+        padding: 0.8rem 2rem;
+        border-radius: $border-radius;
+
+        &:hover {
+            background: $color-red-dark;
+        }
+    }
+
+    .btn-limpiar {
+        border-color: rgba(255, 255, 255, 0.1);
+        color: $color-text-muted;
+        padding: 0.8rem 1.2rem;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: $color-text;
+        }
+    }
+}

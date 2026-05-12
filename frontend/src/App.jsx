@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AdminObras, AdminUsuarios, AdminDirectores, AdminGeneros, HomePage, ObraDetallePage } from "./pages/index";
+import { 
+    AdminObras, AdminUsuarios, AdminDirectores, AdminGeneros, 
+    HomePage, ObraDetallePage, BusquedaPage
+} from "./pages/index";
 import LoginModal from "./components/LoginModal";
 import AdminLayout from "./components/AdminLayout";
 import api from "./api/axios";
@@ -70,6 +73,7 @@ function App() {
                 {/* Páginas públicas */}
                 <Route path="/" element={<HomePage user={user} onLoginClick={() => setShowLogin(true)} />} />
                 <Route path="/obra/:id" element={<ObraDetallePage user={user} onLoginClick={() => setShowLogin(true)} />} />
+                <Route path="/buscar" element={<BusquedaPage user={user} onLoginClick={() => setShowLogin(true)} />} />
 
                 {/* Panel admin */}
                 <Route path="/admin" element={
