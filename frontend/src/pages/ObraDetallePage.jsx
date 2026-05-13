@@ -5,6 +5,7 @@ import NavbarPublic from "../components/NavbarPublic";
 import Footer from "../components/Footer";
 import Puntuacion from "../components/Puntuacion";
 import Comentarios from "../components/Comentarios";
+import BotonFavorito from "../components/BotonFavorito";
 import api from "../api/axios";
 
 export default function ObraDetalleBase({ user, onLoginClick, children }) {
@@ -90,6 +91,11 @@ export default function ObraDetalleBase({ user, onLoginClick, children }) {
                         {obra.sinopsis && (
                             <p className="detalle-sinopsis">{obra.sinopsis}</p>
                         )}
+                        <BotonFavorito
+                            obraId={obra.id}
+                            user={user}
+                            onLoginClick={onLoginClick}
+                        />
                     </div>
                 </div>
             </div>

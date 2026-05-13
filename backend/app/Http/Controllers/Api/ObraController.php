@@ -73,11 +73,11 @@ class ObraController extends Controller
             'id_director' => 'required|exists:director,id',
             'tipo'        => 'required|in:pelicula,serie',
             // Película
-            'video'       => 'required_if:tipo,pelicula|nullable|file|mimetypes:video/mp4,video/x-matroska,video/avi,video/quicktime|max:2097152',
+            'video'       => 'required_if:tipo,pelicula|nullable|file|mimes:mp4,mkv,avi,mov|mimetypes:video/mp4,video/x-matroska,video/x-msvideo,video/avi,video/quicktime|max:2097152',
             'nombre'      => 'nullable|string|max:255',
             // Serie
             'capitulos'             => 'required_if:tipo,serie|nullable|array|min:1',
-            'capitulos.*.video'     => 'required|file|mimetypes:video/mp4,video/x-matroska,video/avi,video/quicktime|max:2097152',
+            'capitulos.*.video'     => 'required|file|mimes:mp4,mkv,avi,mov|mimetypes:video/mp4,video/x-matroska,video/x-msvideo,video/avi,video/quicktime|max:2097152',
             'capitulos.*.nombre'    => 'nullable|string|max:255',
             'capitulos.*.temporada' => 'required|integer|min:1',
             'capitulos.*.episodio'  => 'required|integer|min:1',

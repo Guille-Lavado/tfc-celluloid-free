@@ -1,0 +1,56 @@
+.btn-favorito {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: $color-text-muted;
+    font-family: $font-body;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1.2rem;
+    border-radius: $border-radius;
+    transition: all 0.2s ease;
+
+    .btn-favorito__icono {
+        font-size: 1rem;
+        transition: transform 0.2s ease;
+    }
+
+    &:hover {
+        border-color: $color-red;
+        color: $color-text;
+        background: rgba(200, 0, 0, 0.08);
+
+        .btn-favorito__icono {
+            transform: scale(1.2);
+        }
+    }
+
+    &:focus,
+    &:active {
+        box-shadow: none;
+        outline: none;
+    }
+
+    // Estado activo — obra en favoritos
+    &.activo {
+        border-color: $color-red;
+        color: $color-red;
+        background: rgba(200, 0, 0, 0.1);
+
+        &:hover {
+            background: rgba(200, 0, 0, 0.2);
+
+            .btn-favorito__icono {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    // Estado cargando
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}

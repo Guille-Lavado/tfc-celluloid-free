@@ -8,6 +8,8 @@ use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\Videometraje;
 use App\Models\Comentario;
+use App\Models\Obra;
+use App\Models\Director;
 
 class User extends Authenticatable
 {
@@ -44,5 +46,15 @@ class User extends Authenticatable
     public function comentarios()
     {
         return $this->hasMany(Comentario::class, 'id_user');    
+    }
+
+    public function favoritosObra()
+    {
+        return $this->belongsToMany(Obra::class, 'favorito_obra', 'id_usuario', 'id_obra');
+    }
+ 
+    public function favoritosDirector()
+    {
+        return $this->belongsToMany(Director::class, 'favorito_director', 'id_usuario', 'id_director');
     }
 }
