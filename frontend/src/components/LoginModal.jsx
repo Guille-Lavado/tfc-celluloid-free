@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Modal, Form, Button, Alert, Spinner } from "react-bootstrap";
 import api from "../api/axios";
 
-export default function LoginModal({ show, onLogin }) {
+export default function LoginModal({ show, onLogin, onSwitchToRegister }) {
     const [form, setForm] = useState({ email: "", password: "" });
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -43,7 +43,7 @@ export default function LoginModal({ show, onLogin }) {
     };
 
     return (
-        <Modal show={show} centered>
+        <Modal show={show} centered className="login-modal">
             <Modal.Header closeButton>
                 <Modal.Title>Iniciar sesión</Modal.Title>
             </Modal.Header>
@@ -58,6 +58,7 @@ export default function LoginModal({ show, onLogin }) {
                             value={form.email}
                             onChange={handleChange}
                             placeholder="usuario@celluloid.com"
+                            disabled={loading}
                         />
                     </Form.Group>
                     <Form.Group className="mb-3">
@@ -68,12 +69,34 @@ export default function LoginModal({ show, onLogin }) {
                             value={form.password}
                             onChange={handleChange}
                             placeholder="••••••••"
+                            disabled={loading}
                         />
                     </Form.Group>
+
+                    {onSwitchToRegister && (
+                        <div className="login-modal__switch">
+                            ¿No tienes cuenta?{" "}
+                            <Button 
+                                variant="link" 
+                                onClick={onSwitchToRegister}
+                                disabled={loading}
+                                className="p-0"
+                            >
+                                Regístrate
+                            </Button>
+                        </div>
+                    )}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" type="submit" disabled={loading}>
-                        {loading ? <Spinner size="sm" animation="border" /> : "Entrar"}
+                        {loading ? (
+                            <>
+                                <Spinner size="sm" animation="border" className="me-2" />
+                                Entrando...
+                            </>
+                        ) : (
+                            "Entrar"
+                        )}
                     </Button>
                 </Modal.Footer>
             </Form>

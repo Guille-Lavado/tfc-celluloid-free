@@ -5,6 +5,7 @@ import {
     HomePage, ObraDetallePage, BusquedaPage
 } from "./pages/index";
 import LoginModal from "./components/LoginModal";
+import RegisterModal from "./components/RegisterModal";
 import AdminLayout from "./components/AdminLayout";
 import api from "./api/axios";
 import "./styles/index.scss";
@@ -12,6 +13,7 @@ import "./styles/index.scss";
 function App() {
     const [user, setUser] = useState(null);
     const [showLogin, setShowLogin] = useState(false);
+    const [showRegister, setShowRegister] = useState(false);
 
     // Al arrancar comprueba si ya hay sesión activa en la cookie
     useEffect(() => {
@@ -42,6 +44,23 @@ function App() {
     const handleLogin = (userData) => {
         setUser(userData);
         setShowLogin(false);
+        setShowRegister(false);
+    };
+
+    const handleRegister = (userData) => {
+        setUser(userData);
+        setShowLogin(false);
+        setShowRegister(false);
+    };
+
+    const switchToRegister = () => {
+        setShowLogin(false);
+        setShowRegister(true);
+    };
+
+    const switchToLogin = () => {
+        setShowRegister(false);
+        setShowLogin(true);
     };
 
     const handleLogout = async () => {
@@ -56,13 +75,21 @@ function App() {
         };
     };
 
-    // Modal, no se puede cerrar sin loguearse
+    // Modales, no se puede cerrar sin loguearse o registrarse
     if (!user) {
         return (
-            <LoginModal
-                show={showLogin}
-                onLogin={handleLogin}
-            />
+            <>
+                <LoginModal
+                    show={showLogin}
+                    onLogin={handleLogin}
+                    onSwitchToRegister={switchToRegister}
+                />
+                <RegisterModal
+                    show={showRegister}
+                    onRegister={handleRegister}
+                    onSwitchToLogin={switchToLogin}
+                />
+            </>
         );
     }
 
