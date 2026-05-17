@@ -1,12 +1,20 @@
 import axios from "axios";
 
+// const api = axios.create({
+//     baseURL: "http://localhost:8000",
+//     withCredentials: true,
+//     withXSRFToken: true,
+//     headers: {
+//         "Accept": "application/json",
+//     }
+// });
+
+// REACT_APP_API_URL: Esta variable esta en Railway
 const api = axios.create({
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_API_URL,
     withCredentials: true,
     withXSRFToken: true,
-    headers: {
-        "Accept": "application/json",
-    }
+    headers: { "Accept": "application/json" },
 });
 
 // Interceptor de respuesta — Añadir Token

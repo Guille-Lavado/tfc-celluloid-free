@@ -13,7 +13,7 @@ return [
     'allowed_methods' => ['*'],
  
     'allowed_origins' => [
-        'http://localhost:3000',
+        'https://laravel-production-f510.up.railway.app',
     ],
  
     'allowed_origins_patterns' => [],
