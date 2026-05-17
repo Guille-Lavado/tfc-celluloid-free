@@ -13,7 +13,7 @@ return [
     'allowed_methods' => ['*'],
  
     'allowed_origins' => [
-        'https://laravel-production-f510.up.railway.app',
+        'https://react-production-f953.up.railway.app',
     ],
  
     'allowed_origins_patterns' => [],
