@@ -19,10 +19,7 @@ export default function LoginModal({ show, onLogin, onSwitchToRegister }) {
             await api.get("/sanctum/csrf-cookie");
             console.log("✅ CSRF cookie obtenida");
 
-            const res = await api.post("/api/login", {
-                "email": "guille@example.com",
-                "password": "password"
-            });
+            const res = await api.post("/api/login", form);
             console.log("✅ Login correcto");
 
             const { access_token, user } = res.data;
