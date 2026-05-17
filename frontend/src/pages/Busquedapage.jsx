@@ -32,7 +32,7 @@ export default function BusquedaPage({ user, onLoginClick }) {
         if (filtros.nombre || filtros.genero || filtros.director) {
             ejecutarBusqueda(filtros);
         }
-    }, []);
+    }, [filtros]);
 
     const handleChange = (e) => {
         setFiltros({ ...filtros, [e.target.name]: e.target.value });

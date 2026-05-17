@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import NavbarPublic from "../components/NavbarPublic";
 import Catalogo from "../components/Catalogo";
@@ -8,7 +7,6 @@ import api from "../api/axios";
 export default function HomePage({ user, onLoginClick }) {
   const [obras, setObras] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     api.get("/api/obras")

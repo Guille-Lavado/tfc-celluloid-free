@@ -38,7 +38,7 @@ export default function ObraDetalleBase({ user, onLoginClick, children }) {
         };
 
         fetchObra();
-    }, [id]);
+    }, [id, navigate]);
 
     if (loading) {
         return (
